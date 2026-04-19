@@ -15,7 +15,6 @@ const Cabinet = () => {
   const [cabinetData, setCabinetData] = useState(null);
   const [devices, setDevices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [pduRefreshKey, setPduRefreshKey] = useState(0);
   
   // 生成U位数组，从42到1
   const rackUnits = useMemo(() => Array.from({ length: 42 }, (_, index) => 42 - index), []);
@@ -69,7 +68,6 @@ const Cabinet = () => {
 
   // 获取机柜的PDU数据
   const { 
-    data: pduData, 
     loading: pduLoading, 
     error: pduError,
     transformedData: pduTransformedData,
@@ -104,7 +102,6 @@ const Cabinet = () => {
 
   // 刷新PDU数据
   const handleRefreshPDU = useCallback(() => {
-    setPduRefreshKey(prev => prev + 1);
     refetchPDU();
     message.info('正在刷新PDU数据...');
   }, [refetchPDU]);

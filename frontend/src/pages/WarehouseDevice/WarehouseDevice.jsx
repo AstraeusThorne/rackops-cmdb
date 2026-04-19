@@ -2,15 +2,15 @@
  * 仓库设备管理页面
  * 提供仓库设备的列表、筛选、搜索、编辑、删除、上架、出库等功能
  */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   Table, Button, Space, Popconfirm, message, Card, Input, Modal, 
   Select, Tag, Drawer, Row, Col, Statistic 
 } from 'antd';
 import { 
-  PlusOutlined, SearchOutlined, DeleteOutlined, EditOutlined, 
+  SearchOutlined, DeleteOutlined, EditOutlined,
   EyeOutlined, ReloadOutlined, ThunderboltOutlined, DesktopOutlined,
-  ExportOutlined, HistoryOutlined, CalendarOutlined
+  HistoryOutlined, CalendarOutlined
 } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
@@ -50,6 +50,7 @@ const WarehouseDevice = () => {
     pageSize: 15,
     total: 0
   });
+  const { current, pageSize } = pagination;
 
   // 设备类型映射
   const deviceTypeMap = {
@@ -70,20 +71,15 @@ const WarehouseDevice = () => {
     'out_of_warehouse': { label: '已出库', color: 'orange' }
   };
 
-  // 加载数据（分页、筛选、搜索变化时请求，搜索走后端跨页）
-  useEffect(() => {
-    fetchData();
-  }, [pagination.current, pagination.pageSize, statusFilter, deviceTypeFilter, supplierFilter, searchText]);
-
   /**
    * 获取仓库设备数据（支持后端搜索，跨页）
    */
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
       const params = {
-        page: pagination.current,
-        page_size: pagination.pageSize
+        page: current,
+        page_size: pageSize
       };
 
       if (statusFilter !== 'all') {
@@ -119,7 +115,19 @@ const WarehouseDevice = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [
+    current,
+    deviceTypeFilter,
+    pageSize,
+    searchText,
+    statusFilter,
+    supplierFilter,
+  ]);
+
+  // 加载数据（分页、筛选、搜索变化时请求，搜索走后端跨页）
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   /**
    * 搜索输入（300ms 防抖，后端筛选跨页）
@@ -730,4 +738,3 @@ const WarehouseDevice = () => {
 };
 
 export default WarehouseDevice;
-

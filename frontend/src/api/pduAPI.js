@@ -406,9 +406,10 @@ export {
 };
 
 // 默认导出合并的PDU API服务对象
-export default {
+const pduAPI = {
   ...pduDeviceAPI,
   ...pduPortAPI,
   ...pduDataAPI
 };
 
+export default pduAPI;

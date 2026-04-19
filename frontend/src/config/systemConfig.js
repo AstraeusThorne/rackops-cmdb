@@ -153,7 +153,7 @@ export const getConfigValue = (config, path, defaultValue = null) => {
   return value !== undefined ? value : defaultValue;
 };
 
-export default {
+const systemConfig = {
   defaultConfig,
   defaultAlertThresholds,
   defaultDisplaySettings,
@@ -162,3 +162,5 @@ export default {
   mergeConfig,
   getConfigValue
 };
+
+export default systemConfig;

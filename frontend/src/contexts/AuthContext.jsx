@@ -72,13 +72,15 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('refreshToken', data.refresh);
       
       // 移除令牌字段后保存用户信息
-      const { access, refresh, user: userInfo } = data;
+      const { user: userInfo } = data;
       if (userInfo) {
       localStorage.setItem('user', JSON.stringify(userInfo));
       setUser(userInfo);
       } else {
         // 如果没有user字段，尝试从data中提取其他字段
-        const { access: _, refresh: __, ...rest } = data;
+        const rest = Object.fromEntries(
+          Object.entries(data).filter(([key]) => key !== 'access' && key !== 'refresh')
+        );
         localStorage.setItem('user', JSON.stringify(rest));
         setUser(rest);
       }
@@ -124,4 +126,4 @@ export const AuthProvider = ({ children }) => {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}; 
+};

@@ -299,7 +299,7 @@ export const statusColors = {
 };
 
 // 导出所有数据
-export default {
+const powerMonitoringData = {
   roomsData,
   cabinetPowerData,
   powerTrendData,
@@ -309,3 +309,5 @@ export default {
   displaySettings,
   statusColors
 };
+
+export default powerMonitoringData;

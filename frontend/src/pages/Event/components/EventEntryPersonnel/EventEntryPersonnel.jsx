@@ -40,6 +40,7 @@ const EventEntryPersonnel = () => {
     pageSize: 10,
     total: 0,
   });
+  const { current, pageSize } = pagination;
 
   /**
    * 加载进场记录（每条为「某人在某次事件进场」一条，同一人多次进场显示多条）
@@ -64,8 +65,8 @@ const EventEntryPersonnel = () => {
 
   // 页面加载及分页变化时请求当前页数据
   useEffect(() => {
-    fetchData(pagination.current, pagination.pageSize);
-  }, [pagination.current, pagination.pageSize]);
+    fetchData(current, pageSize);
+  }, [current, fetchData, pageSize]);
 
   // 显示编辑人员对话框（每条记录对应一人，编辑该人员信息）
   const showModal = (record = null) => {
@@ -107,7 +108,7 @@ const EventEntryPersonnel = () => {
         setModalVisible(false);
         setEditingRecord(null);
         form.resetFields();
-        fetchData(pagination.current, pagination.pageSize);
+        fetchData(current, pageSize);
       }
     } catch (error) {
       console.error('Form validation failed:', error);

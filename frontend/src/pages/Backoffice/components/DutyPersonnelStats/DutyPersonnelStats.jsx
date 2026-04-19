@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Table, Tag, Statistic, Row, Col, Select, Spin, message, Tooltip } from 'antd';
-import { EditOutlined, ClockCircleOutlined, PlusOutlined, EditFilled, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, PlusOutlined, EditFilled, DeleteOutlined } from '@ant-design/icons';
 import { historyAPI } from '../../../../api';
 import dayjs from 'dayjs';
 import './DutyPersonnelStats.css';
@@ -259,4 +259,3 @@ const DutyPersonnelStats = () => {
 };
 
 export default DutyPersonnelStats;
-

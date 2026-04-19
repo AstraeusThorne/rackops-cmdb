@@ -20,6 +20,7 @@ const useEvents = () => {
     pageSize: 10,
     total: 0,
   });
+  const { current, pageSize } = pagination;
 
   /**
    * 获取事件列表（支持分页）
@@ -129,7 +130,7 @@ const useEvents = () => {
       setLoading(true);
       await eventAPI.deleteEvent(id);
       message.success('事件已成功删除');
-      await fetchEvents(pagination.current, pagination.pageSize);
+      await fetchEvents(current, pageSize);
       return true;
     } catch (error) {
       console.error('删除事件失败', error);
@@ -138,12 +139,12 @@ const useEvents = () => {
     } finally {
       setLoading(false);
     }
-  }, [fetchEvents, pagination]);
+  }, [current, fetchEvents, pageSize]);
 
   // 初始化加载事件列表（仅在组件挂载时加载第一页）
   useEffect(() => {
     fetchEvents(1, 10);
-  }, []);
+  }, [fetchEvents]);
 
   // 分页变化时重新加载数据（仅依赖页码与每页条数，避免搜索后 searchParams 更新导致重复请求）
   useEffect(() => {
@@ -151,7 +152,7 @@ const useEvents = () => {
       isInitialMount.current = false;
       return;
     }
-    if (pagination.current <= 0 || pagination.pageSize <= 0) return;
+    if (current <= 0 || pageSize <= 0) return;
     const params = searchParamsRef.current;
     const hasSearchParams = params && (
       (params.dateRange && params.dateRange.length === 2) ||
@@ -161,11 +162,11 @@ const useEvents = () => {
       (params.completion_status !== undefined && params.completion_status !== null && params.completion_status !== '')
     );
     if (hasSearchParams) {
-      searchEvents(params, pagination.current, pagination.pageSize);
+      searchEvents(params, current, pageSize);
     } else {
-      fetchEvents(pagination.current, pagination.pageSize);
+      fetchEvents(current, pageSize);
     }
-  }, [pagination.current, pagination.pageSize]);
+  }, [current, fetchEvents, pageSize, searchEvents]);
 
   return {
     events,

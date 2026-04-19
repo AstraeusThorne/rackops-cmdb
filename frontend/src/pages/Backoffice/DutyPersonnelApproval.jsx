@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Table, Button, Tag, Modal, Form, Input, message, Descriptions, Space } from 'antd';
 import { CheckOutlined, CloseOutlined, EyeOutlined } from '@ant-design/icons';
 import { dutyPersonnelAPI } from '../../api';
-import dayjs from 'dayjs';
 
 /**
  * 值班人员审核管理页面（仅管理员）
@@ -221,4 +220,3 @@ const DutyPersonnelApproval = () => {
 };
 
 export default DutyPersonnelApproval;
-

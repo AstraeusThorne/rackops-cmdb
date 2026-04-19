@@ -58,6 +58,4 @@ jobs:
         run: npm ci
 
       - name: Build frontend bundle
-        env:
-          CI: "false"
         run: npm run build

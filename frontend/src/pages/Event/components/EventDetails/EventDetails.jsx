@@ -52,7 +52,7 @@ const EventDetails = ({ visible, event, onClose }) => {
 
   /** 用于展示的事件数据：优先使用接口返回的完整详情，否则用列表传入的 event */
   const displayEvent = detailEvent != null ? detailEvent : event;
-  const entryPersonnel = displayEvent?.entry_personnel ?? [];
+  const entryPersonnel = useMemo(() => displayEvent?.entry_personnel ?? [], [displayEvent]);
 
   // 编辑事件
   const handleEdit = () => {
@@ -61,7 +61,7 @@ const EventDetails = ({ visible, event, onClose }) => {
   };
 
   // 进场人员表格列（后端 EntryPersonnel 字段：name, id_card, contact_info 等）
-  const personnelColumns = [
+  const personnelColumns = useMemo(() => ([
     {
       title: '姓名',
       dataIndex: 'name',
@@ -84,7 +84,7 @@ const EventDetails = ({ visible, event, onClose }) => {
       dataIndex: 'organization',
       key: 'organization',
     }
-  ];
+  ]), []);
 
   // 使用 useMemo 来稳定 Tabs items 数组，避免 key 警告
   const tabItems = useMemo(() => {

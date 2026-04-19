@@ -12,23 +12,17 @@ import {
   Tag,
   Empty,
   Spin,
-  Divider,
-  Typography
 } from 'antd';
 import { 
   SearchOutlined, 
   FilterOutlined, 
   ReloadOutlined,
-  InfoCircleOutlined,
-  ThunderboltOutlined,
-  WarningOutlined,
   LayoutOutlined
 } from '@ant-design/icons';
 import './RoomLayoutView.css';
 
 const { Option } = Select;
 const { Search } = Input;
-const { Title } = Typography;
 
 const RoomLayoutView = ({ 
   cabinets = [], 
@@ -39,23 +33,6 @@ const RoomLayoutView = ({
   const [searchText, setSearchText] = useState('');
   const [selectedRoom, setSelectedRoom] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
-  const [viewMode, setViewMode] = useState('layout'); // 'layout' 或 'grid'
-
-  // 状态颜色映射
-  const statusColors = {
-    normal: '#52c41a',
-    warning: '#faad14',
-    critical: '#ff4d4f',
-    offline: '#d9d9d9'
-  };
-
-  // 状态图标映射
-  const statusIcons = {
-    normal: <ThunderboltOutlined />,
-    warning: <WarningOutlined />,
-    critical: <WarningOutlined />,
-    offline: <InfoCircleOutlined />
-  };
 
   // 过滤机柜数据
   const filteredCabinets = useMemo(() => {
@@ -111,7 +88,6 @@ const RoomLayoutView = ({
         // 尝试匹配 roomId-AreaNumber 格式，如 F1B-A01
         const idMatch = cabinet.cabinetId.match(/^[^-]+-([A-Z])(\d+)$/);
         if (idMatch) {
-          const area = idMatch[1];
           const number = parseInt(idMatch[2]);
           // 每6个机柜一排
           rowNum = String(Math.floor((number - 1) / 6) + 1).padStart(2, '0');
@@ -394,4 +370,3 @@ const RoomLayoutView = ({
 };
 
 export default RoomLayoutView;
-

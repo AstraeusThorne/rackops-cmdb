@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Card, Spin, message, Tooltip, Input, Select, Tag, Row, Col } from 'antd';
+import { Card, Spin, message, Tooltip, Input, Select, Row, Col } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { SearchOutlined } from '@ant-design/icons';
 import { roomAPI } from '../../../api';
@@ -23,6 +23,125 @@ const F1B = () => {
   const [searchText, setSearchText] = useState(''); // 搜索文本
   const [filterStatus, setFilterStatus] = useState('all'); // 过滤状态
   const [cabinetStatusData, setCabinetStatusData] = useState({}); // 存储每个机柜的PDU状态数据 { cabinetId: { current, status } }
+
+  // 获取机柜PDU状态数据
+  const fetchCabinetPDUStatus = useCallback(async (cabinetIds) => {
+    try {
+      if (!cabinetIds || cabinetIds.length === 0) {
+        setCabinetStatusData({});
+        return;
+      }
+
+      // 并行获取端口、电流数据和开关状态
+      const [portsResponse, currentResponse, switchStatusResponse] = await Promise.all([
+        pduPortAPI.getBatchPortsByCabinets(cabinetIds, true),
+        pduDataAPI.getBatchLatestByCabinets(cabinetIds, 'current', false),
+        pduDataAPI.getBatchLatestByCabinets(cabinetIds, 'switch_status', false)
+      ]);
+
+      const batchPortsData = portsResponse.data || {};
+      const batchCurrentData = currentResponse.data || [];
+      const batchSwitchStatusData = switchStatusResponse.data || [];
+
+      // 建立端口ID到机柜ID的映射
+      const portToCabinetMap = {};
+      Object.entries(batchPortsData).forEach(([cabinetKey, ports]) => {
+        const cabinetId = parseInt(cabinetKey.replace('cabinet_', ''));
+        if (Array.isArray(ports)) {
+          ports.forEach(port => {
+            portToCabinetMap[port.id] = cabinetId;
+          });
+        }
+      });
+
+      // 计算每个机柜的状态
+      const statusMap = {};
+      cabinetIds.forEach(cabinetId => {
+        const cabinetCurrentData = batchCurrentData.filter(item => {
+          const portId = item.pdu_port;
+          if (!portId) return false;
+          return portToCabinetMap[portId] === cabinetId;
+        });
+
+        const cabinetSwitchStatusData = batchSwitchStatusData.filter(item => {
+          const portId = item.pdu_port;
+          if (!portId) return false;
+          return portToCabinetMap[portId] === cabinetId;
+        });
+
+        let totalCurrent = 0;
+        if (cabinetCurrentData.length > 0) {
+          const currents = cabinetCurrentData
+            .map(item => parseFloat(item.value) || 0)
+            .filter(c => c > 0);
+          if (currents.length > 0) {
+            totalCurrent = currents.reduce((sum, c) => sum + c, 0);
+          }
+        }
+
+        let switchStatus = null;
+        if (cabinetSwitchStatusData.length > 0) {
+          const switchValues = cabinetSwitchStatusData.map(item => {
+            const value = item.value;
+            const numValue = parseFloat(value);
+            if (!isNaN(numValue)) {
+              if (numValue === 1 || Math.abs(numValue - 1) < 0.0001) {
+                return 1;
+              }
+              return 0;
+            }
+            const strValue = String(value).trim().toLowerCase();
+            if (strValue === '1' || strValue === 'true' || strValue === 'on' || strValue === 'yes') {
+              return 1;
+            }
+            return 0;
+          });
+          switchStatus = switchValues.every(v => v === 0) ? 0 : 1;
+        }
+
+        const currentCritical = alertThresholds?.current?.critical || 20;
+        const currentWarning = alertThresholds?.current?.warning || 10;
+
+        let status = 'OFFLINE';
+        if (switchStatus !== null) {
+          if (switchStatus === 0) {
+            status = 'OFFLINE';
+          } else if (totalCurrent > 0) {
+            if (totalCurrent >= currentCritical) {
+              status = 'CRITICAL';
+            } else if (totalCurrent >= currentWarning) {
+              status = 'WARNING';
+            } else {
+              status = 'NORMAL';
+            }
+          } else {
+            status = 'NORMAL';
+          }
+        } else if (totalCurrent > 0) {
+          if (totalCurrent >= currentCritical) {
+            status = 'CRITICAL';
+          } else if (totalCurrent >= currentWarning) {
+            status = 'WARNING';
+          } else {
+            status = 'NORMAL';
+          }
+        } else {
+          status = 'OFFLINE';
+        }
+
+        statusMap[cabinetId] = {
+          current: totalCurrent,
+          status: status,
+          switchStatus: switchStatus
+        };
+      });
+
+      setCabinetStatusData(statusMap);
+    } catch (error) {
+      console.error('Error fetching PDU status data:', error);
+      setCabinetStatusData({});
+    }
+  }, [alertThresholds]);
 
   // 加载机房数据：一次请求获取机房 + 机柜及设备数，再异步拉取 PDU 状态
   useEffect(() => {
@@ -74,135 +193,7 @@ const F1B = () => {
     };
 
     fetchRoomData();
-  }, []);
-
-  // 获取机柜PDU状态数据
-  const fetchCabinetPDUStatus = useCallback(async (cabinetIds) => {
-    try {
-      if (!cabinetIds || cabinetIds.length === 0) {
-        setCabinetStatusData({});
-        return;
-      }
-
-      // 并行获取端口、电流数据和开关状态
-      const [portsResponse, currentResponse, switchStatusResponse] = await Promise.all([
-        pduPortAPI.getBatchPortsByCabinets(cabinetIds, true),
-        pduDataAPI.getBatchLatestByCabinets(cabinetIds, 'current', false),
-        pduDataAPI.getBatchLatestByCabinets(cabinetIds, 'switch_status', false)
-      ]);
-
-      const batchPortsData = portsResponse.data || {};
-      const batchCurrentData = currentResponse.data || [];
-      const batchSwitchStatusData = switchStatusResponse.data || [];
-
-      // 建立端口ID到机柜ID的映射
-      const portToCabinetMap = {};
-      Object.entries(batchPortsData).forEach(([cabinetKey, ports]) => {
-        const cabinetId = parseInt(cabinetKey.replace('cabinet_', ''));
-        if (Array.isArray(ports)) {
-          ports.forEach(port => {
-            portToCabinetMap[port.id] = cabinetId;
-          });
-        }
-      });
-
-      // 计算每个机柜的状态
-      const statusMap = {};
-      cabinetIds.forEach(cabinetId => {
-        // 提取该机柜的电流数据
-        const cabinetCurrentData = batchCurrentData.filter(item => {
-          const portId = item.pdu_port;
-          if (!portId) return false;
-          return portToCabinetMap[portId] === cabinetId;
-        });
-
-        // 提取该机柜的开关状态数据
-        const cabinetSwitchStatusData = batchSwitchStatusData.filter(item => {
-          const portId = item.pdu_port;
-          if (!portId) return false;
-          return portToCabinetMap[portId] === cabinetId;
-        });
-
-        // 计算2路总电流（所有端口的电流总和）
-        let totalCurrent = 0;
-        if (cabinetCurrentData.length > 0) {
-          const currents = cabinetCurrentData
-            .map(item => parseFloat(item.value) || 0)
-            .filter(c => c > 0);
-          if (currents.length > 0) {
-            totalCurrent = currents.reduce((sum, c) => sum + c, 0);
-          }
-        }
-
-        // 判断开关状态
-        let switchStatus = null;
-        if (cabinetSwitchStatusData.length > 0) {
-          const switchValues = cabinetSwitchStatusData.map(item => {
-            const value = item.value;
-            const numValue = parseFloat(value);
-            if (!isNaN(numValue)) {
-              if (numValue === 1 || Math.abs(numValue - 1) < 0.0001) {
-                return 1;
-              }
-              return 0;
-            }
-            const strValue = String(value).trim().toLowerCase();
-            if (strValue === '1' || strValue === 'true' || strValue === 'on' || strValue === 'yes') {
-              return 1;
-            }
-            return 0;
-          });
-          switchStatus = switchValues.every(v => v === 0) ? 0 : 1;
-        }
-
-        // 使用配置的电流阈值
-        const currentCritical = alertThresholds?.current?.critical || 20;
-        const currentWarning = alertThresholds?.current?.warning || 10;
-        
-        let status = 'OFFLINE';
-        if (switchStatus !== null) {
-          if (switchStatus === 0) {
-            status = 'OFFLINE';
-          } else {
-            if (totalCurrent > 0) {
-              if (totalCurrent >= currentCritical) {
-                status = 'CRITICAL';
-              } else if (totalCurrent >= currentWarning) {
-                status = 'WARNING';
-              } else {
-                status = 'NORMAL';
-              }
-            } else {
-              status = 'NORMAL';
-            }
-          }
-        } else {
-          if (totalCurrent > 0) {
-            if (totalCurrent >= currentCritical) {
-              status = 'CRITICAL';
-            } else if (totalCurrent >= currentWarning) {
-              status = 'WARNING';
-            } else {
-              status = 'NORMAL';
-            }
-          } else {
-            status = 'OFFLINE';
-          }
-        }
-
-        statusMap[cabinetId] = {
-          current: totalCurrent,
-          status: status,
-          switchStatus: switchStatus
-        };
-      });
-
-      setCabinetStatusData(statusMap);
-    } catch (error) {
-      console.error('Error fetching PDU status data:', error);
-      setCabinetStatusData({});
-    }
-  }, []);
+  }, [fetchCabinetPDUStatus]);
 
   // 过滤和搜索机柜数据
   const filteredCabinets = useMemo(() => {

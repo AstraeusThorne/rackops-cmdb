@@ -442,8 +442,8 @@ const Dashboard = () => {
       });
 
       setRooms(formattedRooms);
-      if (formattedRooms.length > 0 && !selectedRoomId) {
-        setSelectedRoomId(formattedRooms[0].id);
+      if (formattedRooms.length > 0) {
+        setSelectedRoomId((prevRoomId) => prevRoomId || formattedRooms[0].id);
       }
     } catch (error) {
       console.error('Error fetching rooms:', error);

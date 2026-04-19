@@ -14,6 +14,7 @@ const CabinetDetail = ({ cabinet, onClose }) => {
   const { getAlertThresholds, getDisplaySettings } = useConfig();
   const alertThresholds = getAlertThresholds();
   const displaySettings = getDisplaySettings();
+  const historyDays = displaySettings?.historyDataDays || 1;
   
   const { data: pduData, loading, transformedData } = useCabinetPDU(cabinet.cabinetId, {
     cabinetInfo: {
@@ -61,15 +62,6 @@ const CabinetDetail = ({ cabinet, onClose }) => {
     return Math.max(thdA, thdB);
   }, [transformedData]);
 
-  // 历史数据（模拟）- 基于电流
-  const totalCurrent = useMemo(() => {
-    if (!transformedData && !pduData) return 0;
-    const dataSource = transformedData || pduData;
-    const circuitA = dataSource.circuitA || {};
-    const circuitB = dataSource.circuitB || {};
-    return (circuitA.current || 0) + (circuitB.current || 0);
-  }, [transformedData, pduData]);
-
   // 历史数据状态 - 分别存储A路和B路的数据
   const [historyDataA, setHistoryDataA] = useState([]);
   const [historyDataB, setHistoryDataB] = useState([]);
@@ -108,7 +100,6 @@ const CabinetDetail = ({ cabinet, onClose }) => {
         }
 
         // 计算时间范围：使用配置的历史数据查询天数
-        const historyDays = displaySettings?.historyDataDays || 1;
         const now = new Date();
         const targetDate = new Date(now);
         targetDate.setDate(targetDate.getDate() - historyDays);
@@ -341,7 +332,7 @@ const CabinetDetail = ({ cabinet, onClose }) => {
     };
 
     fetchHistoryData();
-  }, [cabinet.cabinetId]);
+  }, [cabinet.cabinetId, historyDays]);
 
   // 使用transformedData获取数据（如果可用），否则使用pduData
   const dataSource = transformedData || pduData;
@@ -608,4 +599,3 @@ const CabinetDetail = ({ cabinet, onClose }) => {
 };
 
 export default CabinetDetail;
-

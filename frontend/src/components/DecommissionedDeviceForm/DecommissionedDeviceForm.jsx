@@ -80,26 +80,25 @@ const DecommissionedDeviceForm = ({ initialValues = {}, onFinish, onCancel, isEd
 
   // 页面加载时获取事件列表和在用设备列表
   useEffect(() => {
-    // 只在组件挂载时获取数据一次
     if (!dataFetchedRef.current) {
       fetchData();
     }
-    
-    // 如果是编辑模式，设置表单初始值
+
+    return () => {
+      if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+      dataFetchedRef.current = false;
+    };
+  }, [fetchData]);
+
+  useEffect(() => {
     if (isEdit && initialValues) {
-      // 格式化日期时间
       const formValues = {
         ...initialValues,
         decommission_time: initialValues.decommission_time ? dayjs(initialValues.decommission_time) : null
       };
       form.setFieldsValue(formValues);
     }
-    
-    // 组件卸载时的清理
-    return () => {
-      dataFetchedRef.current = false;
-    };
-  }, []); // 仅在组件挂载时执行一次
+  }, [form, initialValues, isEdit]);
 
   /**
    * 处理设备选择变化

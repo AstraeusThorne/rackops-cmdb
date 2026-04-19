@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import './CabinetNode.css';
 
 /**
@@ -38,6 +38,8 @@ const CabinetNode = ({ cabinet, onClick, isSelected, statusData }) => {
       baseClass += ' cabinet-node-offline';
       indicatorClass += ' cabinet-indicator-offline';
       break;
+    default:
+      break;
   }
 
   if (isSelected) {
@@ -65,4 +67,3 @@ const CabinetNode = ({ cabinet, onClick, isSelected, statusData }) => {
 };
 
 export default CabinetNode;
-

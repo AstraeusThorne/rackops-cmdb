@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Table, Card, Input, Space, Tag, Button, message, Select, Badge } from 'antd';
 import { SearchOutlined, CheckCircleOutlined, ExclamationCircleOutlined, CloseCircleOutlined, UploadOutlined, DownloadOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
@@ -31,7 +31,7 @@ const DeviceAlert = () => {
    * 获取告警列表（支持后端搜索与状态筛选）
    * 全部状态时请求较大 page_size，避免分页只返回第一页导致只看到「已确认」
    */
-  const fetchAlerts = async () => {
+  const fetchAlerts = useCallback(async () => {
     setLoading(true);
     try {
       const params = { _t: Date.now() };
@@ -50,21 +50,12 @@ const DeviceAlert = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  // 加载告警数据：初始及搜索/状态变化时请求（搜索 300ms 防抖）
-  useEffect(() => {
-    fetchDutyPersonnel();
-  }, []);
-
-  useEffect(() => {
-    fetchAlerts();
   }, [searchText, statusFilter]);
 
   /**
    * 获取值班人员列表
    */
-  const fetchDutyPersonnel = async () => {
+  const fetchDutyPersonnel = useCallback(async () => {
     try {
       const response = await dutyPersonnelAPI.getDutyPersonnel();
       const personnelData = response.data?.results || response.data || [];
@@ -74,7 +65,16 @@ const DeviceAlert = () => {
       message.error('获取值班人员列表失败');
       setDutyPersonnel([]);
     }
-  };
+  }, []);
+
+  // 加载告警数据：初始及搜索/状态变化时请求（搜索 300ms 防抖）
+  useEffect(() => {
+    fetchDutyPersonnel();
+  }, [fetchDutyPersonnel]);
+
+  useEffect(() => {
+    fetchAlerts();
+  }, [fetchAlerts]);
 
   /**
    * 确认告警

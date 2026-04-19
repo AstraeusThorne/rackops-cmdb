@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   Table, Button, Tag, Modal, Descriptions, message, 
-  Select, DatePicker, Space, Checkbox, Row, Col 
+  Select, DatePicker, Space, Row, Col
 } from 'antd';
 import { RollbackOutlined, EyeOutlined } from '@ant-design/icons';
 import { historyAPI } from '../../api';
@@ -31,11 +31,7 @@ const HistoryViewer = ({ contentType, objectId, onRevert }) => {
     reverted: '',
   });
 
-  useEffect(() => {
-    fetchHistories();
-  }, [filters]);
-
-  const fetchHistories = async () => {
+  const fetchHistories = useCallback(async () => {
     setLoading(true);
     try {
       const params = {};
@@ -58,7 +54,11 @@ const HistoryViewer = ({ contentType, objectId, onRevert }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    fetchHistories();
+  }, [fetchHistories]);
 
   const handleRevert = async (historyId) => {
     Modal.confirm({
@@ -384,4 +384,3 @@ const HistoryViewer = ({ contentType, objectId, onRevert }) => {
 };
 
 export default HistoryViewer;
-

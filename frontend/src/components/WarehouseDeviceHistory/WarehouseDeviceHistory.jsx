@@ -6,7 +6,7 @@
  * @param {number} props.warehouseDeviceId - 仓库设备ID
  * @returns {React.ReactElement} 历史记录查看组件
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Table, Timeline, Tabs, Tag, message } from 'antd';
 import dayjs from 'dayjs';
 import { warehouseDeviceAPI } from '../../api/warehouseDeviceAPI';
@@ -15,16 +15,10 @@ const WarehouseDeviceHistory = ({ warehouseDeviceId }) => {
   const [historyRecords, setHistoryRecords] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (warehouseDeviceId) {
-      fetchHistory();
-    }
-  }, [warehouseDeviceId]);
-
   /**
    * 获取历史记录
    */
-  const fetchHistory = async () => {
+  const fetchHistory = useCallback(async () => {
     setLoading(true);
     try {
       const response = await warehouseDeviceAPI.getWarehouseDeviceHistory({
@@ -36,7 +30,13 @@ const WarehouseDeviceHistory = ({ warehouseDeviceId }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [warehouseDeviceId]);
+
+  useEffect(() => {
+    if (warehouseDeviceId) {
+      fetchHistory();
+    }
+  }, [fetchHistory, warehouseDeviceId]);
 
   /**
    * 获取操作类型标签颜色
@@ -194,4 +194,3 @@ const WarehouseDeviceHistory = ({ warehouseDeviceId }) => {
 };
 
 export default WarehouseDeviceHistory;
-

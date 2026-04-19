@@ -6,14 +6,12 @@ import {
   Col,
   Card,
   Statistic,
-  Progress,
   Badge,
   Tag,
   Descriptions,
   Alert,
   Button,
   Space,
-  Tooltip,
   Divider,
   Table,
   Empty,
@@ -23,8 +21,6 @@ import {
 } from 'antd';
 import {
   ThunderboltOutlined,
-  WarningOutlined,
-  InfoCircleOutlined,
   ReloadOutlined,
   DownloadOutlined,
   FullscreenOutlined
@@ -34,7 +30,6 @@ import { useCabinetPDU, usePDUHistory } from '../../hooks/usePDU';
 import { formatPDUHistoryData, extractArrayFromResponse } from '../../utils/pduDataTransform';
 import { pduPortAPI } from '../../api/pduAPI';
 import { useConfig } from '../../contexts/ConfigContext';
-import dayjs from 'dayjs';
 import './CabinetDetailModal.css';
 
 const { Option } = Select;
@@ -895,4 +890,3 @@ const CabinetDetailModal = ({
 };
 
 export default CabinetDetailModal;
-
