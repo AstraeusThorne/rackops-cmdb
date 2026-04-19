@@ -1,5 +1,8 @@
 # RackOps CMDB
 
+[![CI](https://github.com/AstraeusThorne/rackops-cmdb/actions/workflows/ci.yml/badge.svg)](https://github.com/AstraeusThorne/rackops-cmdb/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+
 RackOps CMDB 是一个面向机房运维场景的配置管理平台，覆盖机房、机柜、在用设备、下架设备、仓库设备、事件流转、值班人员、PDU 弱电数据与报表输出等核心能力。
 
 项目当前采用前后端分离架构：
