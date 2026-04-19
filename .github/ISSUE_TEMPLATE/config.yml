@@ -3,6 +3,9 @@ contact_links:
   - name: 安全策略
     url: https://github.com/AstraeusThorne/rackops-cmdb/blob/main/SECURITY.md
     about: 如果涉及漏洞、权限绕过或敏感信息泄露，请先阅读安全策略
+  - name: 支持说明
+    url: https://github.com/AstraeusThorne/rackops-cmdb/blob/main/SUPPORT.md
+    about: 如果你不确定该提 Bug、提需求还是先查文档，可以先看支持说明
   - name: 使用与部署说明
     url: https://github.com/AstraeusThorne/rackops-cmdb/blob/main/README.md
     about: 如果是安装、启动或部署问题，建议先查看 README
