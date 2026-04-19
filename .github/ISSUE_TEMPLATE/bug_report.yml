@@ -1,0 +1,69 @@
+name: Bug Report
+description: 报告一个会影响现有功能的问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈问题。请尽量填写完整信息，这会帮助我们更快定位。
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题概述
+      description: 用一两句话描述问题本身
+      placeholder: 例如：F1B 机房页面在加载 PDU 状态后出现空白
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请按顺序描述复现过程
+      placeholder: |
+        1. 进入 ...
+        2. 点击 ...
+        3. 看到 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+      placeholder: 例如：页面应正常显示机柜列表
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      placeholder: 例如：页面空白，控制台出现异常
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 浏览器、系统、部署方式或本地运行信息
+      placeholder: 例如：macOS 15 / Chrome 135 / 本地开发环境
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 报错日志或截图
+      description: 可粘贴关键日志，也可说明截图内容
+      render: shell
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已确认内容中不包含密钥、口令、Token 或其他敏感信息
+          required: true

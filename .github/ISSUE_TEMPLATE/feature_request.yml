@@ -1,0 +1,48 @@
+name: Feature Request
+description: 提出一个功能增强或产品改进建议
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎提交功能建议。请尽量描述清楚使用场景和预期收益。
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景与痛点
+      description: 当前遇到了什么问题，为什么需要这个功能
+      placeholder: 例如：仓库设备列表无法按供货方组合导出，人工整理成本较高
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 期望方案
+      description: 希望系统如何工作
+      placeholder: 例如：支持在仓库设备页面按筛选条件导出 Excel
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 备选方案
+      description: 如果你已经考虑过其他实现方式，可以一并说明
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 预期收益
+      description: 说明这个功能会帮助谁、减少什么成本、改善什么流程
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已确认内容中不包含密钥、口令、Token 或其他敏感信息
+          required: true
