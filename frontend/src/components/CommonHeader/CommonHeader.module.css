@@ -1,0 +1,34 @@
+.header {
+  background-color: #fff;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.iconButton {
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.iconButton:hover {
+  color: #1890ff;
+}
+
+.userInfo {
+  cursor: pointer;
+  padding: 0 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.userInfo:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+} 

@@ -1,0 +1,21 @@
+.report-management {
+  padding: 16px;
+}
+
+.report-management .ant-card-head-title {
+  font-weight: 600;
+}
+
+.report-management .export-form .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.report-management .config-actions {
+  margin-bottom: 16px;
+}
+
+.report-management .schedule-tip {
+  color: var(--ant-color-text-secondary);
+  font-size: 12px;
+  margin-top: 8px;
+}

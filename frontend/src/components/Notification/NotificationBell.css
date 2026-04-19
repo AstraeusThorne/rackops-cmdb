@@ -1,0 +1,16 @@
+.notification-popover {
+  min-width: 320px;
+}
+
+.notification-item-unread {
+  background-color: #e6f7ff;
+}
+
+.notification-item-read {
+  background-color: #fff;
+}
+
+.notification-item-unread:hover {
+  background-color: #bae7ff;
+}
+

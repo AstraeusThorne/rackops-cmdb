@@ -1,0 +1,211 @@
+.rack-visualization {
+  max-width: 500px;
+  margin: 16px 0;
+}
+
+.rack-container {
+  padding: 12px;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  position: relative;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.rack-units {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px 8px;
+  margin: 0 8px;
+}
+
+.rack-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.rack-u-position {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 18px;
+  padding: 2px 6px;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  position: relative;
+  background: #ffffff;
+  font-size: 11px;
+}
+
+.rack-u-position:hover {
+  border-color: #1890ff;
+  box-shadow: 0 1px 3px rgba(24, 144, 255, 0.2);
+  z-index: 10;
+}
+
+.rack-u-position.occupied {
+  border-color: #bfbfbf;
+  border-width: 1.5px;
+  background: #f0f0f0;
+}
+
+.rack-u-position.selected {
+  border-color: #1890ff;
+  border-width: 1.5px;
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3);
+  z-index: 5;
+}
+
+.rack-u-position.selectable {
+  border-color: #52c41a;
+  cursor: pointer;
+  background: #f6ffed;
+}
+
+.rack-u-position.selectable:hover {
+  border-color: #389e0d;
+  background-color: #d9f7be;
+  transform: scale(1.02);
+}
+
+.rack-u-position.conflict {
+  border-color: #ff4d4f;
+  border-width: 1.5px;
+  box-shadow: 0 2px 6px rgba(255, 77, 79, 0.3);
+  background: #fff1f0;
+}
+
+.u-number {
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  color: #666;
+}
+
+.u-content {
+  flex: 1;
+  margin-left: 4px;
+  overflow: hidden;
+}
+
+.device-info {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.device-icon {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.device-name {
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 45px;
+}
+
+.device-model {
+  font-size: 8px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50px;
+}
+
+/* 标题区域优化 */
+.rack-visualization .ant-card-head {
+  padding: 8px 12px;
+  min-height: auto;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.rack-visualization .ant-card-head-title {
+  font-size: 13px;
+}
+
+.rack-visualization .ant-card-body {
+  padding: 8px;
+}
+
+/* 状态指示器优化 */
+.status-indicators {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.status-indicators .ant-tag {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 10px;
+  line-height: 16px;
+  border-radius: 2px;
+}
+
+/* 选择信息显示 */
+.selection-info {
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: #f0f8ff;
+  border: 1px solid #d6e4ff;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #1890ff;
+  text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .rack-visualization {
+    max-width: 100%;
+  }
+  
+  .rack-container {
+    max-height: 300px;
+  }
+  
+  .rack-units {
+    grid-template-columns: 1fr;
+    gap: 1px;
+    margin: 0 4px;
+  }
+  
+  .device-name,
+  .device-model {
+    max-width: 60px;
+  }
+  
+  .rack-u-position {
+    min-height: 16px;
+    padding: 1px 4px;
+  }
+  
+  .u-number {
+    font-size: 9px;
+    min-width: 20px;
+  }
+  
+  .device-icon {
+    font-size: 9px;
+  }
+  
+  .device-name {
+    font-size: 8px;
+  }
+  
+  .device-model {
+    font-size: 7px;
+  }
+} 

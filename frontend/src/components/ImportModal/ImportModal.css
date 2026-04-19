@@ -1,0 +1,77 @@
+/* 导入模态框样式 */
+.import-steps {
+  margin-bottom: 24px;
+}
+
+.import-content {
+  min-height: 400px;
+}
+
+.step-content {
+  padding: 16px 0;
+}
+
+.step-icon {
+  margin-right: 8px;
+  color: #1890ff;
+}
+
+.upload-dragger {
+  margin: 16px 0;
+}
+
+.upload-dragger .ant-upload-drag-icon {
+  margin-bottom: 16px;
+}
+
+.upload-dragger .ant-upload-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.upload-dragger .ant-upload-hint {
+  color: #999;
+  font-size: 14px;
+}
+
+/* 步骤标题样式 */
+.ant-typography h4.ant-typography {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* 表格样式优化 */
+.ant-table-thead > tr > th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+/* 错误列表样式 */
+.ant-alert .ant-alert-description > div {
+  margin-bottom: 4px;
+}
+
+/* 卡片间距 */
+.ant-card + .ant-card {
+  margin-top: 16px;
+}
+
+/* 列表项样式 */
+.ant-list-item {
+  padding: 4px 0;
+  border: none;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .ant-modal {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+  
+  .import-content {
+    min-height: 300px;
+  }
+} 

@@ -1,0 +1,191 @@
+.cabinetDetailContainer {
+  padding: 0;
+}
+
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 16px;
+}
+
+.error {
+  color: #ff4d4f;
+}
+
+.pageHeader {
+  margin-bottom: 16px;
+}
+
+.backButton {
+  font-size: 16px;
+}
+
+.cabinetCard {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabinetTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cabinetStatus {
+  margin-left: 16px;
+}
+
+.cabinetInfo, .cabinetVisualization {
+  background-color: #fafafa;
+  padding: 16px;
+  border-radius: 4px;
+  height: 100%;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infoItem {
+  display: flex;
+  line-height: 1.5;
+}
+
+.label {
+  width: 90px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* 机柜视图样式 */
+.rackContainer {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rackHeader {
+  display: flex;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.headerCell {
+  padding: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.uHeader {
+  width: 50px;
+  border-right: 1px solid #e8e8e8;
+}
+
+.brandHeader {
+  flex: 3;
+  border-right: 1px solid #e8e8e8;
+}
+
+.snHeader {
+  flex: 2;
+  border-right: 1px solid #e8e8e8;
+}
+
+.powerHeader {
+  flex: 1;
+}
+
+.rackBody {
+  display: flex;
+  position: relative;
+  height: 924px; /* 42U * 22px */
+  background-color: #fff;
+}
+
+.uLabels {
+  width: 50px;
+  border-right: 1px solid #e8e8e8;
+  background-color: #f9f9f9;
+}
+
+.uLabel {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #666;
+  border-bottom: 1px dashed #eee;
+}
+
+.rackUnits {
+  flex: 1;
+  position: relative;
+}
+
+.rackUnit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22px;
+}
+
+.occupied {
+  background-color: #1890ff;
+  color: white;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.unitContent {
+  height: 100%;
+  display: flex;
+  padding: 0 8px;
+}
+
+.unitInfo {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.brand {
+  flex: 3;
+}
+
+.sn {
+  flex: 2;
+  justify-content: center;
+}
+
+.power {
+  flex: 1;
+  justify-content: flex-end;
+} 

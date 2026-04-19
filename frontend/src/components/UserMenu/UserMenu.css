@@ -1,0 +1,17 @@
+.user-menu-trigger {
+  cursor: pointer;
+  padding: 0 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.user-menu-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.user-menu-name {
+  margin-left: 8px;
+  font-size: 14px;
+} 

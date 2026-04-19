@@ -1,0 +1,29 @@
+.data-import-container {
+  padding: 24px;
+}
+
+.import-card {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.import-steps {
+  margin: 24px 0;
+}
+
+.upload-section {
+  padding: 24px 0;
+}
+
+.preview-section,
+.result-section {
+  padding: 24px 0;
+}
+
+.ant-upload-drag {
+  background-color: #fafafa;
+}
+
+.ant-upload-drag:hover {
+  border-color: #1890ff;
+}

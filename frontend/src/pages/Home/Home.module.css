@@ -1,0 +1,141 @@
+.homeContainer {
+  padding: 0 16px;
+}
+
+.welcome {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.statsRow {
+  margin-top: 24px;
+}
+
+.statCard {
+  border-radius: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.statCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* 加载中容器样式 */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+/* 卡片底部按钮样式 */
+.cardFooter {
+  margin-top: 12px;
+  text-align: right;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+}
+
+/* 快捷操作卡片样式 */
+.shortcutCard {
+  margin-bottom: 16px;
+}
+
+/* 快捷操作项目样式 */
+.shortcutItem {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 100px;
+}
+
+.shortcutItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.shortcutIcon {
+  font-size: 24px;
+  margin-right: 16px;
+}
+
+.shortcutContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcutTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.shortcutDesc {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* 卡片标题样式 */
+.cardTitle {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cardTitle > span {
+  margin-right: 8px;
+}
+
+/* 机房卡片样式 */
+.roomCard {
+  height: 100%;
+}
+
+/* 事件卡片样式 */
+.eventsCard {
+  height: 100%;
+}
+
+/* 事件详情模态框样式 */
+.eventDetailModal {
+  max-width: 800px;
+}
+
+/* 空数据状态样式 */
+.emptyData {
+  text-align: center;
+  padding: 32px 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  margin-top: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+} 

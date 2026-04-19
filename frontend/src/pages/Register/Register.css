@@ -1,0 +1,39 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.register-title {
+  text-align: center;
+  margin-bottom: 24px !important;
+  color: #1890ff;
+}
+
+.register-form {
+  margin-top: 20px;
+}
+
+.register-message {
+  margin-bottom: 20px;
+}
+
+.register-form-button {
+  margin-top: 12px;
+}
+
+.register-form-login {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+} 

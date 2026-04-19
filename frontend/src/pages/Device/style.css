@@ -1,0 +1,285 @@
+/* 设备管理页面样式 */
+.device-container {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 页面头部样式 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  gap: 24px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #262626;
+  line-height: 1.2;
+}
+
+.page-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #595959;
+  white-space: nowrap;
+}
+
+.stats-divider {
+  color: #d9d9d9;
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.header-filters {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-filters .ant-space {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* 表格卡片样式 */
+.table-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.table-card .ant-card-body {
+  padding: 0;
+}
+
+/* 表格样式优化 */
+.device-table {
+  border-radius: 0;
+}
+
+.device-table .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  border-bottom: 2px solid #f0f0f0;
+  padding: 16px 12px;
+}
+
+.device-table .ant-table-tbody > tr > td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.device-table .ant-table-tbody > tr:hover > td {
+  background: #f8f9fa;
+}
+
+.device-table .ant-pagination {
+  margin: 16px 24px;
+  text-align: right;
+}
+
+/* 自定义滚动条样式 */
+.device-table .ant-table-body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.device-table .ant-table-body::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.device-table .ant-table-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.device-table .ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.device-table .ant-table-body::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* 操作按钮样式 */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.action-button {
+  border: none;
+  box-shadow: none;
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* 设备详情模态框样式 */
+.device-detail-modal .ant-descriptions-item-label {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.device-detail-modal .ant-descriptions-item-content {
+  background: #fff;
+}
+
+/* 设备类型标签样式 */
+.device-type-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 电源瓦数显示样式 */
+.power-wattage-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.power-wattage-display .anticon {
+  color: #faad14;
+}
+
+/* 设备信息展示优化 */
+.device-info-cell {
+  text-align: left;
+  line-height: 1.4;
+}
+
+.device-info-cell p {
+  margin: 2px 0;
+  font-size: 12px;
+}
+
+.device-info-cell strong {
+  color: #595959;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .header-right {
+    align-items: stretch;
+  }
+  
+  .header-filters {
+    justify-content: flex-start;
+  }
+  
+  .header-filters .ant-space {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .header-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .device-container {
+    padding: 16px;
+  }
+  
+  .page-header {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .page-title {
+    font-size: 20px;
+  }
+  
+  .page-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .stats-divider {
+    display: none;
+  }
+  
+  .header-filters .ant-space {
+    flex-wrap: wrap;
+  }
+  
+  .header-filters .ant-select,
+  .header-filters .ant-input {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  
+  .device-table .ant-pagination {
+    margin: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .device-container {
+    padding: 12px;
+  }
+  
+  .page-header {
+    padding: 12px;
+  }
+  
+  .header-right .ant-input {
+    width: 180px !important;
+  }
+}

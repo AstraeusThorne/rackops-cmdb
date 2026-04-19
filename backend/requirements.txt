@@ -1,0 +1,32 @@
+# 基础（simplejwt 等依赖 pkg_resources；setuptools 82+ 已移除 pkg_resources，故锁定 <82）
+setuptools>=65.0.0,<82
+
+# Django核心依赖
+Django==4.2.16
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+djangorestframework-simplejwt==5.3.0
+
+# 数据库驱动
+psycopg2-binary==2.9.9
+
+# 其他工具
+Pillow==10.1.0
+python-decouple==3.8
+whitenoise==6.6.0
+openpyxl>=3.1.0
+reportlab>=4.0.0
+
+# 开发工具
+django-debug-toolbar==4.2.0
+django-extensions==3.2.3
+
+# 测试工具
+pytest==7.4.3
+pytest-django==4.7.0
+factory-boy==3.3.0
+
+# 代码质量
+flake8==6.1.0
+black==23.11.0
+isort==5.12.0

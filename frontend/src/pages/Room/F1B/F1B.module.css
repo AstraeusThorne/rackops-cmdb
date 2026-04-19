@@ -1,0 +1,380 @@
+/* 页面整体布局 */
+.roomPage {
+  padding: 16px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 简化的页面头部 */
+.pageHeader {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.roomStats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #8c8c8c;
+  font-weight: 400;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+}
+
+/* 搜索和筛选区域 */
+.searchFilterSection {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.searchFilterContent {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.filterBox {
+  width: 140px;
+}
+
+/* 主要内容区域 */
+.mainContent {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.roomCard {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.roomInfo {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .roomInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .divider {
+    display: none;
+  }
+}
+
+.divider {
+  margin: 0 12px;
+  color: #ddd;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.emptyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  color: #999;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.zoomControls {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cabinetLayoutWrapper {
+  overflow: auto;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  min-height: 500px;
+  max-height: 70vh;
+  padding: 16px;
+}
+
+.cabinetLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 500px;
+  overflow: visible;
+}
+
+.cabinetRow {
+  display: flex;
+  gap: 16px;
+  min-width: fit-content;
+}
+
+.cabinetCell {
+  width: 100px;
+  height: 100px;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  .cabinetCell {
+    width: 80px;
+    height: 80px;
+    min-width: 60px;
+  }
+  
+  .cabinetName {
+    font-size: 14px !important;
+  }
+  
+  .deviceCount {
+    font-size: 10px !important;
+  }
+  
+  .zoomControls {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .cabinetCell {
+    width: 60px;
+    height: 60px;
+    min-width: 50px;
+  }
+  
+  .cabinetLayout {
+    gap: 8px;
+  }
+  
+  .cabinetRow {
+    gap: 8px;
+  }
+  
+  .cabinetLayoutWrapper {
+    padding: 8px;
+  }
+}
+
+.occupied {
+  background-color: #1890ff;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+}
+
+.occupied:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+}
+
+.empty {
+  background-color: #e8e8e8;
+  border: 1px dashed #d9d9d9;
+}
+
+.cabinetInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cabinetName {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.deviceCount {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* 列表视图样式 */
+.listView {
+  width: 100%;
+}
+
+.cabinetCard {
+  height: 140px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cabinetCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cabinetCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cabinetCardHeader .cabinetName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.cabinetCardContent {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cabinetCardContent p {
+  margin: 4px 0;
+  color: #666;
+}
+
+/* 机柜列表容器 */
+.cabinetListContainer {
+  margin-top: 8px;
+}
+
+/* 紧凑机柜卡片 */
+.compactCabinetCard {
+  height: 30px !important;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 6px;
+}
+
+.compactCabinetCard:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+  border-color: #1890ff;
+}
+
+.compactCabinetContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+}
+
+.compactCabinetName {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-bottom: 0;
+  line-height: 1;
+  flex: 1;
+  text-align: left;
+}
+
+.compactCabinetStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 状态圆点 - 统一配色方案 */
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.statusDot.empty {
+  background-color: #bfbfbf; /* 统一的灰色 - 空闲 */
+}
+
+.statusDot.normal {
+  background-color: #52c41a; /* 保持绿色 - 正常 */
+}
+
+.statusDot.high {
+  background-color: #fa8c16; /* 统一的橙色 - 高负载 */
+}
+
+.statusDot.full {
+  background-color: #f5222d; /* 统一的红色 - 满载 */
+}
+
+/* PDU状态样式 */
+.statusDot.critical {
+  background-color: #f5222d; /* 红色 - 严重告警（>=20A） */
+}
+
+.statusDot.warning {
+  background-color: #fa8c16; /* 橙色 - 告警（>=10A） */
+}
+
+.statusDot.offline {
+  background-color: #bfbfbf; /* 灰色 - 离线 */
+}

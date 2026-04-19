@@ -1,0 +1,41 @@
+.searchFormContainer {
+  margin-bottom: 20px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.searchForm {
+  width: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+  min-width: 140px;
+}
+
+.buttonCol {
+  display: flex;
+  align-items: center;
+}
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.formItem {
+  margin-bottom: 0;
+  width: 180px;
+  flex-grow: 1;
+  max-width: 280px;
+}
+
+.buttonItem {
+  margin-bottom: 0;
+  margin-left: auto;
+} 

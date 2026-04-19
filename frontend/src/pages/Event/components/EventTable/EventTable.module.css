@@ -1,0 +1,26 @@
+.tableContainer {
+  width: 100%;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.editButton {
+  color: #1890ff;
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+.viewButton {
+  color: #52c41a;
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+.deleteButton {
+  color: #ff4d4f;
+  font-size: 16px;
+  padding: 0 4px;
+} 

@@ -1,0 +1,25 @@
+.duty-personnel-operations-page {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.duty-personnel-operations-card {
+  background: #fff;
+}
+
+.duty-personnel-operations-card .ant-card-head-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.duty-personnel-operations-card .ant-statistic-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.duty-personnel-operations-card .ant-statistic-content {
+  font-size: 24px;
+  font-weight: 600;
+}
+

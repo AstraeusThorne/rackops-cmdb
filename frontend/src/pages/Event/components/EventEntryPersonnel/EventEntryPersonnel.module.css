@@ -1,0 +1,15 @@
+.entryPersonnelPage {
+  padding: 0;
+}
+
+.editButton {
+  color: #1890ff;
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+.deleteButton {
+  color: #ff4d4f;
+  font-size: 16px;
+  padding: 0 4px;
+} 

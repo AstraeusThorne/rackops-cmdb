@@ -1,0 +1,40 @@
+.create-alert-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-alert-form .ant-form-item-label {
+  font-weight: 500;
+}
+
+.create-alert-form .ant-select {
+  width: 100%;
+}
+
+.create-alert-form .ant-btn {
+  margin-right: 10px;
+}
+
+.create-alert-form .ant-card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.create-alert-form .ant-card-head {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: #fafafa;
+}
+
+.create-alert-form .buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .create-alert-form {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+} 

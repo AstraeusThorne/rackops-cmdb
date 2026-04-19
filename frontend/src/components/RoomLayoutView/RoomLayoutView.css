@@ -1,0 +1,498 @@
+/* 机房布局视图样式 */
+.room-layout-view {
+  padding: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+/* 控制栏样式 */
+.layout-controls {
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.layout-controls .ant-input-search {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.layout-controls .ant-input-search:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.layout-controls .ant-select {
+  border-radius: 8px;
+}
+
+.layout-controls .ant-select .ant-select-selector {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.layout-controls .ant-select:hover .ant-select-selector {
+  border-color: #3b82f6;
+}
+
+.layout-controls .ant-btn {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  transition: all 0.3s ease;
+}
+
+.layout-controls .ant-btn:hover {
+  border-color: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 统计信息样式 */
+.layout-stats {
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 状态特定样式 */
+.stat-normal {
+  border-left: 4px solid #10b981;
+}
+
+.stat-normal .stat-number {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.stat-warning .stat-number {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-critical {
+  border-left: 4px solid #ef4444;
+}
+
+.stat-critical .stat-number {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-offline {
+  border-left: 4px solid #9ca3af;
+}
+
+.stat-offline .stat-number {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 机房网格样式 */
+.rooms-layout {
+  min-height: 400px;
+}
+
+.rooms-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 机房卡片样式 */
+.room-layout-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.room-layout-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.room-layout-card .ant-card-head {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.room-layout-card .ant-card-body {
+  padding: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+}
+
+/* 机房头部样式 */
+.room-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.room-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1e293b;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 机房布局样式 */
+.room-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 机柜行样式 */
+.cabinet-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.row-label {
+  min-width: 90px;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.row-label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.row-cabinets {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 小型机柜卡片样式 */
+.mini-cabinet-card {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.mini-cabinet-card:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #3b82f6;
+  z-index: 10;
+}
+
+.mini-cabinet-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabinet-status-badge {
+  margin: 0 !important;
+}
+
+.cabinet-status-badge .ant-badge-status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 状态相关样式 */
+.mini-cabinet-card.cabinet-status-normal {
+  border-left: 4px solid #10b981;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.mini-cabinet-card.cabinet-status-warning {
+  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.mini-cabinet-card.cabinet-status-critical {
+  border-left: 4px solid #ef4444;
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+}
+
+.mini-cabinet-card.cabinet-status-offline {
+  border-left: 4px solid #9ca3af;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  opacity: 0.8;
+}
+
+.mini-cabinet-card.cabinet-status-normal:hover {
+  border-left-color: #10b981;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.mini-cabinet-card.cabinet-status-warning:hover {
+  border-left-color: #f59e0b;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.mini-cabinet-card.cabinet-status-critical:hover {
+  border-left-color: #ef4444;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+.mini-cabinet-card.cabinet-status-offline:hover {
+  border-left-color: #9ca3af;
+  box-shadow: 0 8px 25px rgba(156, 163, 175, 0.3);
+}
+
+/* 工具提示样式 */
+.cabinet-detail-tooltip .ant-tooltip-inner {
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  min-width: 300px;
+  backdrop-filter: blur(10px);
+}
+
+.cabinet-detail-tooltip .ant-tooltip-arrow::before {
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  border: 1px solid #e5e7eb;
+}
+
+.cabinet-tooltip {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.tooltip-header strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tooltip-content > div {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .cabinet-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .row-label {
+    min-width: auto;
+    text-align: left;
+    padding-top: 0;
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+  
+  .row-cabinets {
+    justify-content: flex-start;
+  }
+  
+  .mini-cabinet-card {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .layout-controls {
+    padding: 16px 20px;
+  }
+  
+  .layout-stats {
+    padding: 12px 20px;
+  }
+  
+  .room-layout-card .ant-card-body {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-controls .ant-row {
+    flex-direction: column;
+  }
+  
+  .layout-controls .ant-col {
+    width: 100% !important;
+  }
+  
+  .layout-stats {
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+  
+  .layout-stats .ant-space {
+    flex-wrap: wrap;
+  }
+  
+  .mini-cabinet-card {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .cabinet-status-badge .ant-badge-status-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .row-label {
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 70px;
+  }
+  
+  .room-name {
+    font-size: 16px;
+  }
+  
+  .room-layout-card .ant-card-head {
+    padding: 12px 16px;
+  }
+  
+  .room-layout-card .ant-card-body {
+    padding: 16px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .layout-controls {
+    display: none;
+  }
+  
+  .room-layout-card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+  
+  .mini-cabinet-card {
+    border: 1px solid #000 !important;
+  }
+  
+  .mini-cabinet-card.cabinet-status-normal {
+    background: #f0f0f0;
+  }
+  
+  .mini-cabinet-card.cabinet-status-warning {
+    background: #fff7e6;
+  }
+  
+  .mini-cabinet-card.cabinet-status-critical {
+    background: #fff2f0;
+  }
+  
+  .mini-cabinet-card.cabinet-status-offline {
+    background: #fafafa;
+  }
+}

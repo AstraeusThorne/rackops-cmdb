@@ -1,0 +1,508 @@
+/* 机柜详情弹窗样式 */
+.cabinet-detail-modal {
+  top: 20px;
+}
+
+.cabinet-detail-modal .ant-modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.cabinet-detail-modal .ant-modal-header {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  border-bottom: none;
+  padding: 20px 28px;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.cabinet-detail-modal .ant-modal-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.modal-title .anticon {
+  margin-right: 12px;
+  font-size: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.modal-title .ant-tag {
+  margin-left: 16px;
+  border: none;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.cabinet-detail-modal .ant-modal-body {
+  padding: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.cabinet-detail-modal .ant-modal-footer {
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  backdrop-filter: blur(10px);
+}
+
+/* 标签页样式 */
+.detail-tabs {
+  margin: 0;
+}
+
+.detail-tabs .ant-tabs-nav {
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+  margin: 0;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.detail-tabs .ant-tabs-tab {
+  padding: 18px 24px;
+  font-weight: 600;
+  color: #64748b;
+  transition: all 0.3s ease;
+}
+
+.detail-tabs .ant-tabs-tab:hover {
+  color: #3b82f6;
+}
+
+.detail-tabs .ant-tabs-tab.ant-tabs-tab-active {
+  color: #1e40af;
+  font-weight: 700;
+}
+
+.detail-tabs .ant-tabs-content-holder {
+  padding: 28px;
+}
+
+/* 概览内容样式 */
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card,
+.stats-card {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+  backdrop-filter: blur(10px);
+}
+
+.info-card .ant-card-head-title,
+.stats-card .ant-card-head-title {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 16px;
+}
+
+/* 回路卡片样式 */
+.circuit-card {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.circuit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.circuit-a {
+  border-left: 4px solid #3b82f6;
+}
+
+.circuit-b {
+  border-left: 4px solid #52c41a;
+}
+
+.circuit-card .ant-card-head {
+  background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.circuit-card .ant-card-head-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.circuit-status {
+  margin-bottom: 16px;
+  text-align: right;
+}
+
+.voltage-deviation {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.energy-info {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+/* 告警信息样式 */
+.alert-info {
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.alert-info .ant-alert-message {
+  font-weight: 600;
+}
+
+/* 趋势分析样式 */
+.trends-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.chart-card .ant-card-head-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.chart-card .ant-card-body {
+  padding: 16px;
+}
+
+/* 详细参数样式 */
+.parameters-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.params-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.params-card .ant-card-head-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.params-card .ant-descriptions-item-label {
+  font-weight: 500;
+  color: #666;
+  width: 120px;
+}
+
+.params-card .ant-descriptions-item-content {
+  font-weight: 600;
+  color: #333;
+}
+
+.calculated-params {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.calculated-params .ant-card-head-title {
+  font-weight: 600;
+  color: #333;
+}
+
+/* 统计数值样式 */
+.ant-statistic-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.ant-statistic-content {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ant-statistic-content-value {
+  color: #333;
+}
+
+.ant-statistic-content-suffix {
+  font-size: 14px;
+  color: #999;
+  margin-left: 4px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .cabinet-detail-modal {
+    width: 95% !important;
+    max-width: 1000px;
+  }
+  
+  .detail-tabs .ant-tabs-content-holder {
+    padding: 16px;
+  }
+  
+  .overview-content {
+    gap: 12px;
+  }
+  
+  .trends-content {
+    gap: 12px;
+  }
+  
+  .parameters-content {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabinet-detail-modal {
+    width: 100% !important;
+    margin: 0;
+    top: 0;
+    padding-bottom: 0;
+  }
+  
+  .cabinet-detail-modal .ant-modal-content {
+    border-radius: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cabinet-detail-modal .ant-modal-body {
+    flex: 1;
+    max-height: none;
+  }
+  
+  .detail-tabs .ant-tabs-content-holder {
+    padding: 12px;
+  }
+  
+  .modal-title {
+    font-size: 16px;
+  }
+  
+  .modal-title .anticon {
+    font-size: 18px;
+  }
+  
+  .circuit-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .chart-card .ant-card-body {
+    padding: 8px;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px;
+  }
+  
+  .params-card .ant-descriptions-item-label {
+    width: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .detail-tabs .ant-tabs-nav {
+    padding: 0 12px;
+  }
+  
+  .detail-tabs .ant-tabs-tab {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .detail-tabs .ant-tabs-content-holder {
+    padding: 8px;
+  }
+  
+  .cabinet-detail-modal .ant-modal-header {
+    padding: 12px 16px;
+  }
+  
+  .cabinet-detail-modal .ant-modal-footer {
+    padding: 8px 16px;
+  }
+  
+  .cabinet-detail-modal .ant-modal-footer .ant-space {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .cabinet-detail-modal .ant-modal-footer .ant-btn {
+    flex: 1;
+    margin: 0 2px;
+  }
+  
+  .overview-content {
+    gap: 8px;
+  }
+  
+  .info-card .ant-card-body,
+  .stats-card .ant-card-body,
+  .circuit-card .ant-card-body {
+    padding: 8px;
+  }
+  
+  .ant-statistic-content {
+    font-size: 16px;
+  }
+  
+  .ant-statistic-title {
+    font-size: 12px;
+  }
+  
+  .params-card .ant-descriptions-item-label {
+    width: 80px;
+    font-size: 12px;
+  }
+  
+  .params-card .ant-descriptions-item-content {
+    font-size: 12px;
+  }
+}
+
+/* 自定义滚动条 */
+.cabinet-detail-modal .ant-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cabinet-detail-modal .ant-modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.cabinet-detail-modal .ant-modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.cabinet-detail-modal .ant-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 动画效果 */
+.cabinet-detail-modal .ant-modal-content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overview-content > *,
+.trends-content > *,
+.parameters-content > * {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 图表工具提示样式 */
+.recharts-tooltip-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recharts-default-tooltip {
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 高对比度模式支持 - 调整为浅色 */
+@media (prefers-contrast: high) {
+  .circuit-a {
+    border-left-color: #3b82f6;
+  }
+  
+  .circuit-b {
+    border-left-color: #10b981;
+  }
+  
+  .cabinet-detail-modal .ant-modal-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid #3b82f6;
+  }
+  
+  .modal-title {
+    color: #1e293b;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .cabinet-detail-modal .ant-modal-header,
+  .cabinet-detail-modal .ant-modal-footer {
+    display: none;
+  }
+  
+  .cabinet-detail-modal .ant-modal-body {
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .detail-tabs .ant-tabs-nav {
+    display: none;
+  }
+  
+  .detail-tabs .ant-tabs-content-holder {
+    padding: 0;
+  }
+  
+  .chart-card {
+    break-inside: avoid;
+  }
+  
+  .circuit-card {
+    break-inside: avoid;
+  }
+}

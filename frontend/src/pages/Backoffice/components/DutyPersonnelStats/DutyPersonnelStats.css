@@ -1,0 +1,19 @@
+.duty-personnel-stats-card {
+  margin-bottom: 24px;
+}
+
+.duty-personnel-stats-card .ant-card-head-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.duty-personnel-stats-card .ant-statistic-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.duty-personnel-stats-card .ant-statistic-content {
+  font-size: 24px;
+  font-weight: 600;
+}
+

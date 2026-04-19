@@ -1,0 +1,79 @@
+.device-alert-container {
+  width: 100%;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+.device-alert-container .ant-card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.device-alert-container .ant-card-head {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: #fafafa;
+}
+
+.device-alert-container .ant-table {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.device-alert-container .ant-table-thead > tr > th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.device-alert-container .ant-table-tbody > tr.ant-table-row:hover > td {
+  background-color: #f0f7ff;
+}
+
+.device-alert-container .ant-card-head-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.device-alert-container .ant-tag {
+  min-width: 60px;
+  text-align: center;
+}
+
+.create-alert-container {
+  padding: 20px;
+}
+
+.create-alert-container .ant-card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.create-alert-container .ant-form-item-label > label {
+  font-weight: 500;
+}
+
+/* 表格展开行样式 */
+.device-alert-container .ant-table-expanded-row > td {
+  background-color: #f9f9f9;
+  padding: 16px 24px;
+  border-radius: 4px;
+}
+
+.device-alert-container .ant-table-expanded-row p {
+  margin-bottom: 8px;
+}
+
+/* 分页样式 */
+.device-alert-container .ant-pagination {
+  margin-top: 16px;
+  text-align: right;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .device-alert-container {
+    padding: 12px;
+  }
+} 

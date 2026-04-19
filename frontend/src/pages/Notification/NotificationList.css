@@ -1,0 +1,25 @@
+.notification-list-page {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.notification-item-unread {
+  background-color: #f0f9ff;
+  border-left: 3px solid #1890ff;
+}
+
+.notification-item-read {
+  background-color: #fff;
+  border-left: 3px solid transparent;
+}
+
+.notification-item-unread:hover {
+  background-color: #e6f7ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item-read:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+

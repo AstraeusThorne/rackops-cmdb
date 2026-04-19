@@ -1,0 +1,8 @@
+.data-export-container {
+  padding: 24px;
+}
+
+.data-export-container .export-card {
+  max-width: 900px;
+  margin: 0 auto;
+}

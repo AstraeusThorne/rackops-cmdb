@@ -1,0 +1,120 @@
+.decommissioned-device-container {
+  width: 100%;
+  padding: 24px;
+  background-color: #f0f2f5;
+}
+
+.decommissioned-device-container .ant-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.decommissioned-device-container .ant-table {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.decommissioned-device-container .ant-table-thead > tr > th {
+  background-color: #fafafa;
+  font-weight: 500;
+  color: #333;
+  text-align: center !important;
+}
+
+.decommissioned-device-container .ant-card-head-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.decommissioned-device-container .filter-section {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.decommissioned-device-container .action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.decommissioned-device-container .action-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  padding: 0 !important;
+  border-radius: 2px !important;
+  transition: all 0.3s;
+  margin: 0 !important;
+}
+
+.decommissioned-device-container .view-button {
+  color: #1890ff;
+}
+
+.decommissioned-device-container .delete-button {
+  color: #ff4d4f !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.decommissioned-device-container .delete-button:hover {
+  color: #fff !important;
+  background-color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+}
+
+.decommissioned-device-container .delete-button:focus {
+  color: #ff4d4f !important;
+  background-color: transparent !important;
+  border-color: #ff4d4f !important;
+}
+
+.decommissioned-device-container .ant-tag {
+  min-width: 60px;
+  text-align: center;
+}
+
+/* 设备详情模态框样式 */
+.device-detail-modal .ant-row {
+  margin-bottom: 8px;
+}
+
+.device-detail-modal strong {
+  color: #333;
+  margin-right: 8px;
+}
+
+.device-detail-modal .ant-col {
+  margin-bottom: 8px;
+}
+
+.device-detail-modal .ant-tag {
+  margin-left: 8px;
+}
+
+.device-detail-modal {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* 表格内容垂直居中 */
+.device-table .ant-table-tbody > tr > td {
+  padding: 12px 8px;
+  vertical-align: middle;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .decommissioned-device-container {
+    padding: 12px;
+  }
+  
+  .decommissioned-device-container .filter-section > div {
+    margin-bottom: 16px;
+  }
+}
