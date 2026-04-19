@@ -116,6 +116,8 @@ PDU 相关模型通过数据库路由自动读写到 `pdu` 数据库，和主业
 - [数据库设计](./docs/数据库设计.md)
 - [API说明](./docs/API说明.md)
 - [贡献指南](./CONTRIBUTING.md)
+- [安全策略](./SECURITY.md)
+- [行为准则](./CODE_OF_CONDUCT.md)
 
 ## API 概览
 
